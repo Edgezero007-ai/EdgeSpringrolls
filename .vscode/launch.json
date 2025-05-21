@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ArithmeticTask",
+            "request": "launch",
+            "mainClass": "ArithmeticTask",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
+            "name": "HelloWorldApp",
+            "request": "launch",
+            "mainClass": "HelloWorldApp",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        }
+    ]
+}
