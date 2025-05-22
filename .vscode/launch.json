@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "OddEvenChecker",
+            "request": "launch",
+            "mainClass": "OddEvenChecker",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
+            "name": "TaskSheet1_3",
+            "request": "launch",
+            "mainClass": "TaskSheet1_3",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "ArithmeticTask",
             "request": "launch",
             "mainClass": "ArithmeticTask",
