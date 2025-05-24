@@ -4,6 +4,13 @@
             "type": "java",
             "name": "Task131",
             "request": "launch",
+            "mainClass": "Task13.Task131",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
+            "name": "Task131",
+            "request": "launch",
             "mainClass": "Task131.Task131",
             "projectName": "EdgeSpringrolls_bfa716a"
         },
