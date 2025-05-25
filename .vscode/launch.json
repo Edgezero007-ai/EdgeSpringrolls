@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DayOfWeekArray",
+            "request": "launch",
+            "mainClass": "DayOfWeekArray",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "DaysInMonth",
             "request": "launch",
             "mainClass": "DaysInMonth",
