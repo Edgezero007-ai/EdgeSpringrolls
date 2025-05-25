@@ -94,8 +94,13 @@ public class DateTask {
             return false;
         }
         switch (month) {
-            case 4, 6, 9, 11 -> { return day <= 30; }
-            case 2 -> { return day <= 28 || (day == 29 && year % 4 == 0); }
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return day <= 30;
+            case 2:
+                return day <= 28 || (day == 29 && year % 4 == 0);
         }
         return true;
     }

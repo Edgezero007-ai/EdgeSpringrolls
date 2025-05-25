@@ -16,7 +16,7 @@ public class PrimitiveConcatenation {
         
         // Demonstrate the given example
         byte zero = 0;
-        String output = 'W' + zero + 'w';  // This will perform addition first!
+        int output = 'W' + zero + 'w';  // This will perform addition first!
         System.out.println("Unexpected output: " + output);
         
         // Correct way to do the example
