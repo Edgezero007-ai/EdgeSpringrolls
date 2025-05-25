@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RunningSum",
+            "request": "launch",
+            "mainClass": "RunningSum",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
+            "name": "FixedSumOfIntegers",
+            "request": "launch",
+            "mainClass": "FixedSumOfIntegers",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "IntegerChecker",
             "request": "launch",
             "mainClass": "IntegerChecker",
