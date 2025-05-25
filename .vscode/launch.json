@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "VowelConsonantChecker",
+            "request": "launch",
+            "mainClass": "VowelConsonantChecker",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "StringOperations",
             "request": "launch",
             "mainClass": "StringOperations",
