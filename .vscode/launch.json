@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StringBuilderOperations",
+            "request": "launch",
+            "mainClass": "StringBuilderOperations",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "AdvancedWordCounter",
             "request": "launch",
             "mainClass": "AdvancedWordCounter",
