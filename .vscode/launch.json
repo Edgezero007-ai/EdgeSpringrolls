@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StringOperations",
+            "request": "launch",
+            "mainClass": "StringOperations",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "MultiplicationTable",
             "request": "launch",
             "mainClass": "MultiplicationTable",
