@@ -4,7 +4,7 @@ public class PrimitiveConcatenation {
     public static void main(String[] args) {
         // Create primitives with specific values
         byte b = 3;
-        short s = 11;
+        short s = 1;
         int i = 10;
         float f = 2.0f;
         char c = ' ';
