@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrimitiveConcatenation",
+            "request": "launch",
+            "mainClass": "Task2.PrimitiveConcatenation",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
+            "name": "PrimitiveTypesExample",
+            "request": "launch",
+            "mainClass": "Task2.PrimitiveTypesExample",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
