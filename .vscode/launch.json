@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "IntegerChecker",
+            "request": "launch",
+            "mainClass": "IntegerChecker",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "DayOfWeek",
             "request": "launch",
             "mainClass": "DayOfWeek",
