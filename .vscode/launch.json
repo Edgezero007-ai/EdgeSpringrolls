@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TextMath",
+            "request": "launch",
+            "mainClass": "Task9.TextMath",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "CumulativeSumCalculator",
             "request": "launch",
             "mainClass": "Task8.CumulativeSumCalculator",
