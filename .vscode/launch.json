@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CumulativeSumCalculator",
+            "request": "launch",
+            "mainClass": "Task8.CumulativeSumCalculator",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "BasicCalculator",
             "request": "launch",
             "mainClass": "Task7.BasicCalculator",
