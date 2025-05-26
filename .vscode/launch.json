@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PrintEvenNumbers",
+            "request": "launch",
+            "mainClass": "Task6.PrintEvenNumbers",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "LargestOfThree",
             "request": "launch",
             "mainClass": "LargestOfThree",
