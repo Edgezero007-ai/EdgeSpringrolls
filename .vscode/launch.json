@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BasicCalculator",
+            "request": "launch",
+            "mainClass": "Task7.BasicCalculator",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "PrintEvenNumbers",
             "request": "launch",
             "mainClass": "Task6.PrintEvenNumbers",
