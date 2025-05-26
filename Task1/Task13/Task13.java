@@ -59,7 +59,7 @@ class Caldereta extends Afritada {
     }
 }
 
-public class Task131 {
+public class Task13 {
     public static void main(String[] args) {
         // Create meal objects
         Afritada meal1 = new Afritada();
