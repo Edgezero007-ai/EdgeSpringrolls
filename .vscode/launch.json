@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Task12",
+            "request": "launch",
+            "mainClass": "Task12.Task12",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
+            "name": "Tasksheet124",
+            "request": "launch",
+            "mainClass": "Task12.Tasksheet124",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "BookTest",
             "request": "launch",
             "mainClass": "BookTest",
