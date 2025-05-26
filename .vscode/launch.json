@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Task2",
+            "request": "launch",
+            "mainClass": "Task2.Task2",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "Task13",
             "request": "launch",
             "mainClass": "Task13.Task13",

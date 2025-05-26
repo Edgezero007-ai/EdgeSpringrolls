@@ -1,6 +1,6 @@
 package Task2;
 
-public class PrimitiveConcatenation {
+public class Task2 {
     public static void main(String[] args) {
         // Create primitives with specific values
         byte b = 3;
