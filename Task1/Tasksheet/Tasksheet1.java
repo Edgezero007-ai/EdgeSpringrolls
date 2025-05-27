@@ -1,5 +1,3 @@
-package Task13;
-
 class Afritada {
     public void showIngredients() {
         String[] Ingredients = {"Tomato Sauce", "Meat"};
@@ -59,7 +57,7 @@ class Caldereta extends Afritada {
     }
 }
 
-public class Task13 {
+public class Tasksheet1 {
     public static void main(String[] args) {
         // Create meal objects
         Afritada meal1 = new Afritada();
