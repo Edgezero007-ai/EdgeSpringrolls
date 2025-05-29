@@ -12,7 +12,6 @@ public class Gorilla implements Animal {
         // lather, rinse, repeat
         System.out.println("Grooming the gorilla...");
     }
-
     public void pet() {
         // pet at your own risk
         System.out.println("Attempting to pet the gorilla...");
