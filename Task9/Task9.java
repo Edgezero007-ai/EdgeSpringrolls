@@ -2,7 +2,7 @@ package Task9;
 
 import static java.lang.Math.*; // Static import for Math class
 
-public class TextMath {
+public class Task9 {
 
     public static int add(int a, int b) {
         return a + b; // Simple addition
