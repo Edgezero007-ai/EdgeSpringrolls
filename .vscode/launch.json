@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Task16",
+            "request": "launch",
+            "mainClass": "Task16",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "ScoretoGradeForA",
             "request": "launch",
             "mainClass": "ScoretoGradeForA",
