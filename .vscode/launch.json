@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CheckBalance",
+            "request": "launch",
+            "mainClass": "CheckBalance",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "CashTransferApp",
             "request": "launch",
             "mainClass": "CashTransferApp",
