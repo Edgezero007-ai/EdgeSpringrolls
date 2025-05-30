@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CashTransferApp",
+            "request": "launch",
+            "mainClass": "CashTransferApp",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "GcashApp",
             "request": "launch",
             "mainClass": "GcashApp",
