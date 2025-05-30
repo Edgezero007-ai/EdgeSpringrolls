@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 public class GcashApp {
     // Database connection details
     private static final String DB_URL = "jdbc:mysql://localhost:3306/goashapp_db";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "password";
+    private static final String DB_USER = "gcashapp_user";
+    private static final String DB_PASSWORD = "MyS3cure!Pass";
     
     private Connection connection;
     private int currentUserId = -1; // Tracks logged-in user
