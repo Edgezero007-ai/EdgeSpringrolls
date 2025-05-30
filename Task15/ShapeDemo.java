@@ -71,7 +71,7 @@ class Rectangle extends AbstractShape {
 }
 
 // Main class to test the implementation
-public class Main {
+public class ShapeDemo {
     public static void main(String[] args) {
         // Create instances of Circle and Rectangle
         Circle circle = new Circle("Red", 5.0);
