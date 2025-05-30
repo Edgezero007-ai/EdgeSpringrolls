@@ -21,7 +21,7 @@ class Car extends Vehicle {
     }
 }
 
-public class Main {
+public class Task13 {
     public static void main(String[] args) {
         // Create an instance of Car
         Car myCar = new Car();
