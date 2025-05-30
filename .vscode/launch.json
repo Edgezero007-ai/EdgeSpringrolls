@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ShapeDemo",
+            "request": "launch",
+            "mainClass": "ShapeDemo",
+            "projectName": "EdgeSpringrolls_bfa716a"
+        },
+        {
+            "type": "java",
             "name": "Task16",
             "request": "launch",
             "mainClass": "Task16",
