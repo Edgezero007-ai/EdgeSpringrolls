@@ -46,14 +46,12 @@ public class Transactions {
             this.id = id;
         }
 
-        public void setAmount(double double1) {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'setAmount'");
+        public void setAmount(double amount) {
+            this.amount = amount;
         }
 
-        public void setName(String string) {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'setName'");
+        public void setName(String name) {
+            this.name = name;
         }
 
         public void setAccountId(int accountId) {
@@ -61,22 +59,19 @@ public class Transactions {
         }
 
         public void setDate(Timestamp timestamp) {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'setDate'");
+            this.date = timestamp;
         }
 
-        public void setTransferFromId(int int1) {
-            // TODO Auto-generated method stub
-            throw new UnsupportedOperationException("Unimplemented method 'setTransferFromId'");
+        public void setTransferFromId(int transferFromId) {
+            this.transferFromId = transferFromId;
         }
 
         public void setTransferToId(int transferToId) {
             this.transferToId = transferToId;
         }
 
-		public void setType(String string) {
-			// TODO Auto-generated method stub
-			throw new UnsupportedOperationException("Unimplemented method 'setType'");
+		public void setType(String type) {
+			this.type = type;
 		}
     }
 
