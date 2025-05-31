@@ -1,130 +1,97 @@
-import java.sql.*;
-import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+// Remove the public class CashTransferApp from this file.
+// Move the following code to a new file named CashTransferApp.java:
+
+// public class CashTransferApp {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+
+//         System.out.println("Online Banking Cash Transfer");
+//         System.out.print("Enter your account number: ");
+//         String senderId = scanner.nextLine();
+
+//         System.out.print("Enter recipient account number: ");
+//         String recipientId = scanner.nextLine();
+
+//         System.out.print("Enter amount to transfer: ");
+//         double amount = scanner.nextDouble();
+
+//         CashTransfer transfer = new CashTransfer(senderId, recipientId, amount);
+//         transfer.executeTransfer();
+
+//         scanner.close(); // Close the scanner to avoid resource leak
+//     }
+// }
 
 public class CashTransfer {
-    // Database connection details
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/bank";
-    private static final String DB_USER = "bank_user";
-    private static final String DB_PASSWORD = "secure_password";
-    
-    // Transaction limits
-    private static final double DAILY_LIMIT = 10000.00;
-    private static final double MINIMUM_BALANCE = 100.00;
-
-    private String senderAccountId;
-    private String recipientAccountId;
+    private String senderId;
+    private String recipientId;
     private double amount;
 
-    public CashTransfer(String senderAccountId, String recipientAccountId, double amount) {
-        this.senderAccountId = senderAccountId;
-        this.recipientAccountId = recipientAccountId;
+    public CashTransfer(String senderId, String recipientId, double amount) {
+        this.senderId = senderId;
+        this.recipientId = recipientId;
         this.amount = amount;
     }
 
-    public boolean executeTransfer() {
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            conn.setAutoCommit(false); // Start transaction
-            
-            // 1. Validate accounts exist
-            if (!accountExists(conn, senderAccountId) || !accountExists(conn, recipientAccountId)) {
-                System.out.println("Invalid account number(s)");
-                return false;
-            }
-            
-            // 2. Check sender has sufficient balance (including minimum balance requirement)
-            double senderBalance = getBalance(conn, senderAccountId);
-            if (senderBalance < amount + MINIMUM_BALANCE) {
-                System.out.println("Insufficient funds. Minimum balance must be maintained.");
-                return false;
-            }
-            
-            // 3. Check daily transaction limit
-            if (amount > DAILY_LIMIT) {
-                System.out.println("Transfer amount exceeds daily limit of $" + DAILY_LIMIT);
-                return false;
-            }
-            
-            // 4. Check sender and recipient are different
-            if (senderAccountId.equals(recipientAccountId)) {
-                System.out.println("Cannot transfer to same account");
-                return false;
-            }
-            
-            // 5. Execute the transfer
-            updateBalance(conn, senderAccountId, -amount); // Deduct from sender
-            updateBalance(conn, recipientAccountId, amount); // Add to recipient
-            
-            // 6. Log the transaction
-            logTransaction(conn, senderAccountId, recipientAccountId, amount);
-            
-            conn.commit(); // Commit transaction if all steps succeed
-            System.out.println("Transfer successful!");
-            return true;
-            
+    public void executeTransfer() {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            // Establish a connection to the database
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bankdb", "username", "password");
+
+            // Disable auto-commit mode
+            connection.setAutoCommit(false);
+
+            // Prepare the SQL statements
+            String debitSQL = "UPDATE accounts SET balance = balance - ? WHERE account_number = ?";
+            String creditSQL = "UPDATE accounts SET balance = balance + ? WHERE account_number = ?";
+
+            // Prepare the debit statement
+            preparedStatement = connection.prepareStatement(debitSQL);
+            preparedStatement.setDouble(1, amount);
+            preparedStatement.setString(2, senderId);
+            preparedStatement.executeUpdate();
+
+            // Prepare the credit statement
+            preparedStatement = connection.prepareStatement(creditSQL);
+            preparedStatement.setDouble(1, amount);
+            preparedStatement.setString(2, recipientId);
+            preparedStatement.executeUpdate();
+
+            // Commit the transaction
+            connection.commit();
+
+            System.out.println("Transfer successful. Amount: " + amount);
         } catch (SQLException e) {
-            System.err.println("Transfer failed: " + e.getMessage());
-            return false;
-        }
-    }
-
-    // Helper methods
-    private boolean accountExists(Connection conn, String accountId) throws SQLException {
-        String sql = "SELECT 1 FROM accounts WHERE account_id = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, accountId);
-            return stmt.executeQuery().next();
-        }
-    }
-
-    private double getBalance(Connection conn, String accountId) throws SQLException {
-        String sql = "SELECT balance FROM accounts WHERE account_id = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, accountId);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getDouble("balance");
+            e.printStackTrace();
+            // Handle any SQL exceptions
+            try {
+                if (connection != null) {
+                    // Rollback the transaction in case of an error
+                    connection.rollback();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-            throw new SQLException("Account not found");
-        }
-    }
-
-    private void updateBalance(Connection conn, String accountId, double amount) throws SQLException {
-        String sql = "UPDATE accounts SET balance = balance + ? WHERE account_id = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setDouble(1, amount);
-            stmt.setString(2, accountId);
-            int rows = stmt.executeUpdate();
-            if (rows != 1) {
-                throw new SQLException("Failed to update balance");
+        } finally {
+            // Close resources in the reverse order of their creation
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
-    }
-
-    private void logTransaction(Connection conn, String from, String to, double amount) throws SQLException {
-        String sql = "INSERT INTO transactions (from_account, to_account, amount, timestamp) VALUES (?, ?, ?, NOW())";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, from);
-            stmt.setString(2, to);
-            stmt.setDouble(3, amount);
-            stmt.executeUpdate();
-        }
-    }
-
-    @SuppressWarnings("resource")
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("Online Banking Cash Transfer");
-        System.out.print("Enter your account number: ");
-        String senderId = scanner.nextLine();
-        
-        System.out.print("Enter recipient account number: ");
-        String recipientId = scanner.nextLine();
-        
-        System.out.print("Enter amount to transfer: ");
-        double amount = scanner.nextDouble();
-        
-        CashTransfer transfer = new CashTransfer(senderId, recipientId, amount);
-        transfer.executeTransfer();
     }
 }
