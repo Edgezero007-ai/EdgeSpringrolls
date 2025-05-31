@@ -24,6 +24,24 @@ public class Transactions {
         // Constructor, getters, and toString() omitted for brevity
         // (Include them in actual implementation)
 
+        public int getAccountId() {
+            return accountId;
+        }
+
+        @Override
+        public String toString() {
+            return "Transaction{" +
+                    "id=" + id +
+                    ", amount=" + amount +
+                    ", name='" + name + '\'' +
+                    ", accountId=" + accountId +
+                    ", date=" + date +
+                    ", type='" + type + '\'' +
+                    ", transferToId=" + transferToId +
+                    ", transferFromId=" + transferFromId +
+                    '}';
+        }
+
         public void setId(int id) {
             this.id = id;
         }
@@ -55,6 +73,11 @@ public class Transactions {
         public void setTransferToId(int transferToId) {
             this.transferToId = transferToId;
         }
+
+		public void setType(String string) {
+			// TODO Auto-generated method stub
+			throw new UnsupportedOperationException("Unimplemented method 'setType'");
+		}
     }
 
     /**
