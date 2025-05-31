@@ -1,3 +1,30 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "netbeans.jdkhome": "/usr/local/sdkman/candidates/java/21.0.7-ms",
+    "netbeans.project.jdkhome": "/usr/local/sdkman/candidates/java/21.0.7-ms",
+    "java.jdt.ls.java.home": "/usr/local/sdkman/candidates/java/21.0.7-ms",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "/opt/java/11.0.14"
+        },
+        {
+            "name": "JavaSE-17",
+            "path": "/usr/local/sdkman/candidates/java/17.0.15-ms"
+        },
+        {
+            "name": "JavaSE-21",
+            "path": "/usr/local/sdkman/candidates/java/21.0.7-ms"
+        }
+    ],
+    "terminal.integrated.env.linux": {
+        "JAVA_HOME": "/usr/local/sdkman/candidates/java/21.0.7-ms",
+        "PATH": "/usr/local/sdkman/candidates/java/21.0.7-ms/bin:${env:PATH}"
+    },
+    "maven.terminal.customEnv": [
+        {
+            "environmentVariable": "JAVA_HOME",
+            "value": "/usr/local/sdkman/candidates/java/21.0.7-ms"
+        }
+    ]
 }
